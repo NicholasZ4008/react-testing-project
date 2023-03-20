@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+}
+
+.button {
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width:10%;
+}
+  
+.button .start {
+    background-color: lightskyblue;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    width:100%;
+}
+  
+.button .start:hover {
+    background-color: blue;
+}
+  
+.button .stop {
+    background-color: salmon;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    width:100%
+}
+
+.button .stop:hover {
+    background-color: red;
+}
+  
+.button .pause {
+    background-color: orange;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    width:100%
+}
+  
+.button .pause:hover {
+    background-color: orangered;
+}
+
+.count-container{
+    padding:1rem;
+    text-align: center;
+    background-color:black;
+    color:aliceblue;
+    font-size: 50px;
+    width:10%;
+    justify-content: center;
+    margin:auto;
+    display:flex;
+}
+  
