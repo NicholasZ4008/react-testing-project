@@ -1,6 +1,5 @@
 import React, { MouseEventHandler } from "react";
 import { FC } from "react";
-import { useState } from "react";
 
 interface ButtonProps {
   text: string;

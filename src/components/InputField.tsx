@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import { FC } from "react";
 
 interface InputFieldProps {
@@ -12,11 +12,11 @@ const InputField: FC<InputFieldProps> = (props) => {
 
   return (
     <div>
-      <input>
+      <input
         placeholder={placeholder}
         className={className}
         onChange={onChange}
-      </input>
+      />
     </div>
   );
 };
