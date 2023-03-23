@@ -28,7 +28,7 @@ export default function App() {
     <div className="app">
       <h1>App</h1>
       <Button text="+" className="start" onClick={increase} />
-      <Button text="-" className="stop" onClick={decrease} />
+      {/* <Button text="-" className="stop" onClick={decrease} /> */}
 
       <InputField
         className="input-field"

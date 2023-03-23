@@ -16,10 +16,10 @@ describe("App Tests", () => {
     const MINUS_BUTTON = screen.getByText(/\-/i);
     expect(MINUS_BUTTON).toBeInTheDocument();
 
-    const INPUT_FIELD = screen.getByPlaceholderText(/input text/i);
+    const INPUT_FIELD = screen.getByPlaceholderText(/input a number/i);
     expect(INPUT_FIELD).toBeInTheDocument();
 
-    const COUNTER = screen.getByText(/Counter/i);
+    const COUNTER = screen.getByText(/Counter:/i);
     expect(COUNTER).toBeInTheDocument();
 
     const INPUT_REFLECTION = screen.getByText(/the number you typed:/i);
@@ -61,7 +61,9 @@ describe("App Tests", () => {
     const { debug } = render(<App />);
     debug();
     // find the input field
-    const inputField = screen.getByPlaceholderText(/input a number/i);
+    const inputField = screen.getByPlaceholderText(
+      /input a number/i
+    ) as HTMLInputElement;
     //expect(inputField).toBeInTheDocument();
 
     if (inputField) {
@@ -69,14 +71,16 @@ describe("App Tests", () => {
       fireEvent.change(inputField, { target: { value: 1 } });
 
       //assert that it was changed
-      expect(inputField.value).toBe(1);
+      expect(inputField.value).toBe("1");
     }
   });
 
   test("Should test an unorthodox pattern of clicks and numeral inputs", () => {
-    //render all required elements
-    const COUNTER = screen.getByText(/Counter/i);
-    const INPUT_FIELD = screen.getByPlaceholderText(/input text/i);
+    render(<App />);
+
+    const INPUT_FIELD = screen.getByPlaceholderText(
+      /input a number/i
+    ) as HTMLInputElement;
     const PLUS_BUTTON = screen.getByText(/\+/i);
     const MINUS_BUTTON = screen.getByText(/\-/i);
 
@@ -92,6 +96,17 @@ describe("App Tests", () => {
     fireEvent.change(INPUT_FIELD, { target: { value: 5 } });
 
     const countContainer = screen.getByText(/1/i);
-    expect(countContainer).toBe(1);
+    expect(countContainer).toBeInTheDocument();
+
+    if (INPUT_FIELD) {
+      //change the text
+      fireEvent.change(INPUT_FIELD, { target: { value: 5 } });
+
+      //assert that it was changed
+      expect(INPUT_FIELD.value).toBe("5");
+    }
+
+    const differenceContainer = screen.getByText(/4/i);
+    expect(differenceContainer).toBeInTheDocument();
   });
 });
